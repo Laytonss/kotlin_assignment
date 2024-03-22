@@ -7,25 +7,19 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 class ProductService {
-    suspend fun getProductList(): List<Product> {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://localhost:3000")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        val apiService = retrofit.create(ApiService::class.java)
-        val response = apiService.getProducts()
-        return response
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("http://localhost:3000")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    private val apiService = retrofit.create(ApiService::class.java)
+
+    suspend fun getProductList(): List<Product> {
+        return apiService.getProducts()
     }
 
     suspend fun getInventoryList(): List<Inventory> {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://localhost:3000")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val apiService = retrofit.create(ApiService::class.java)
-        val response = apiService.getInventories()
-        return response
+        return apiService.getInventories()
     }
 }

@@ -27,7 +27,7 @@ class ProductService(
             ProductDisplayInfo(
                 sku = it.sku,
                 name = it.name,
-                price = it.price,
+                initialPrice = it.price,
                 quantity = getQuantity(it, productInventorySkuMap),
                 image = it.image,
             )

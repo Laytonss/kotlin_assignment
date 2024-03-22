@@ -10,8 +10,8 @@ class ProductServiceTest {
     fun `should show product list when get products from products api`() {
         val productService = ProductService()
         runBlocking {
-            val productList = productService.getProductList()
-            assertEquals(5, productList.size)
+            val productInfoList = productService.getProductInfoList()
+            assertEquals(5, productInfoList.size)
         }
     }
 
@@ -19,8 +19,8 @@ class ProductServiceTest {
     fun `should show inventory list when get inventory from inventory api`() {
         val productService = ProductService()
         runBlocking {
-            val inventoryList = productService.getInventoryList()
-            assertEquals(8, inventoryList.size)
+            val productInventoryList = productService.getProductInventoryList()
+            assertEquals(8, productInventoryList.size)
         }
     }
 }

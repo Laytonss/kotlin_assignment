@@ -1,16 +1,16 @@
 package com.thoughtworks.assignment
 
-import com.thoughtworks.assignment.entity.Inventory
-import com.thoughtworks.assignment.entity.Product
+import com.thoughtworks.assignment.entity.ProductInventory
+import com.thoughtworks.assignment.entity.ProductInfo
 
 
 class ProductService {
 
-    suspend fun getProductList(): List<Product> {
-        return RetrofitManager.apiService.getProducts()
+    suspend fun getProductInfoList(): List<ProductInfo> {
+        return RetrofitManager.productApiService.getProductInfoList()
     }
 
-    suspend fun getInventoryList(): List<Inventory> {
-        return RetrofitManager.apiService.getInventories()
+    suspend fun getProductInventoryList(): List<ProductInventory> {
+        return RetrofitManager.productApiService.getProductInventoryList()
     }
 }

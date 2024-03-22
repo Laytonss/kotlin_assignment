@@ -9,5 +9,5 @@ object RetrofitManager {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val apiService: ApiService = retrofit.create(ApiService::class.java)
+    val productApiService: ProductApiService = retrofit.create(ProductApiService::class.java)
 }

@@ -1,6 +1,6 @@
 package com.thoughtworks.assignment.entity
 
-data class Inventory(
+data class ProductInventory(
     val id: String,
     val sku: String,
     val zone: String,

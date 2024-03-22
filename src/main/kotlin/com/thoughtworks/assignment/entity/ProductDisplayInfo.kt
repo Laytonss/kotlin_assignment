@@ -13,6 +13,9 @@ data class ProductDisplayInfo(
     val type: ProductType
 ) {
     fun getRealPrice(): Double {
-        return 0.0
+        return if (type == ProductType.NORMAL) initialPrice
+        else if (100 < quantity) initialPrice
+        else if (30 < quantity) initialPrice * 1.2
+        else initialPrice * 1.5
     }
 }

@@ -2,6 +2,7 @@ package com.thoughtworks.assignment
 
 import com.thoughtworks.assignment.entity.ProductInfo
 import com.thoughtworks.assignment.entity.ProductInventory
+import com.thoughtworks.assignment.retrofit.RetrofitManager
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals

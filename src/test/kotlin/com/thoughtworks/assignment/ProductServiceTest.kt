@@ -4,6 +4,8 @@ import com.thoughtworks.assignment.entity.ProductDisplayInfo
 import com.thoughtworks.assignment.entity.ProductInfo
 import com.thoughtworks.assignment.entity.ProductInventory
 import com.thoughtworks.assignment.entity.ProductType
+import com.thoughtworks.assignment.retrofit.ProductApiService
+import com.thoughtworks.assignment.service.ProductService
 import io.mockk.coEvery
 import io.mockk.mockk
 import org.junit.jupiter.api.Test

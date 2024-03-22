@@ -1,9 +1,11 @@
-package com.thoughtworks.assignment
+package com.thoughtworks.assignment.service
 
 import com.thoughtworks.assignment.entity.ProductDisplayInfo
 import com.thoughtworks.assignment.entity.ProductInventory
 import com.thoughtworks.assignment.entity.ProductInfo
 import com.thoughtworks.assignment.entity.ProductType
+import com.thoughtworks.assignment.message.ErrorMessages
+import com.thoughtworks.assignment.retrofit.ProductApiService
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 
@@ -41,7 +43,7 @@ class ProductService(
         productInventorySkuMap: Map<String, List<ProductInventory>>
     ): Int {
         val productInventoryList = productInventorySkuMap.getOrElse(productInfo.sku) {
-            throw RuntimeException("找不到库存信息")
+            throw RuntimeException(ErrorMessages.NO_INVENTORY_FOUND)
         }
         return productInventoryList.sumOf { it.quantity }
     }

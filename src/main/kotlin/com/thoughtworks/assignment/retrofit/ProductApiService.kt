@@ -1,4 +1,4 @@
-package com.thoughtworks.assignment
+package com.thoughtworks.assignment.retrofit
 
 import com.thoughtworks.assignment.entity.ProductInventory
 import com.thoughtworks.assignment.entity.ProductInfo

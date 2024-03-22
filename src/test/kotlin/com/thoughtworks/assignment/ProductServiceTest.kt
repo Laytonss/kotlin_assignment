@@ -3,6 +3,7 @@ package com.thoughtworks.assignment
 import com.thoughtworks.assignment.entity.ProductDisplayInfo
 import com.thoughtworks.assignment.entity.ProductInfo
 import com.thoughtworks.assignment.entity.ProductInventory
+import com.thoughtworks.assignment.entity.ProductType
 import io.mockk.coEvery
 import io.mockk.mockk
 import org.junit.jupiter.api.Test
@@ -24,7 +25,10 @@ class ProductServiceTest {
         val productService = ProductService(mockApiService)
         val productDisplayInfoList = productService.generateProductDisplayList()
         // then
-        assertEquals(arrayListOf(ProductDisplayInfo("ABC", "product1", 5.0, 5, "image3.jpg")), productDisplayInfoList)
+        assertEquals(
+            arrayListOf(ProductDisplayInfo("ABC", "product1", 5.0, 5, "image3.jpg", ProductType.NORMAL)),
+            productDisplayInfoList
+        )
     }
 
     @Test
@@ -42,7 +46,10 @@ class ProductServiceTest {
         val productService = ProductService(mockApiService)
         val productDisplayInfoList = productService.generateProductDisplayList()
         // then
-        assertEquals(arrayListOf(ProductDisplayInfo("ABC", "product1", 5.0, 8, "image3.jpg")), productDisplayInfoList)
+        assertEquals(
+            arrayListOf(ProductDisplayInfo("ABC", "product1", 5.0, 8, "image3.jpg", ProductType.NORMAL)),
+            productDisplayInfoList
+        )
     }
 
     @Test
@@ -67,8 +74,8 @@ class ProductServiceTest {
         // then
         assertEquals(
             arrayListOf(
-                ProductDisplayInfo("ABC", "product1", 5.0, 8, "image3.jpg"),
-                ProductDisplayInfo("SKU2", "product2", 5.0, 8, "image4.jpg")
+                ProductDisplayInfo("ABC", "product1", 5.0, 8, "image3.jpg", ProductType.NORMAL),
+                ProductDisplayInfo("SKU2", "product2", 5.0, 8, "image4.jpg", ProductType.NORMAL)
             ), productDisplayInfoList
         )
     }

@@ -3,6 +3,7 @@ package com.thoughtworks.assignment
 import com.thoughtworks.assignment.entity.ProductDisplayInfo
 import com.thoughtworks.assignment.entity.ProductInventory
 import com.thoughtworks.assignment.entity.ProductInfo
+import com.thoughtworks.assignment.entity.ProductType
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 
@@ -30,6 +31,7 @@ class ProductService(
                 initialPrice = it.price,
                 quantity = getQuantity(it, productInventorySkuMap),
                 image = it.image,
+                type = ProductType.valueOf(it.type)
             )
         }
     }

@@ -1,33 +1,28 @@
 package com.thoughtworks.assignment
 
-import kotlinx.coroutines.runBlocking
+import com.thoughtworks.assignment.entity.ProductDisplayInfo
+import com.thoughtworks.assignment.entity.ProductInfo
+import com.thoughtworks.assignment.entity.ProductInventory
+import io.mockk.coEvery
+import io.mockk.mockk
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 
 class ProductServiceTest {
-    @Test
-    fun `should show product list when get products from products api`() {
-        val productService = ProductService()
-        runBlocking {
-            val productInfoList = productService.getProductInfoList()
-            assertEquals(5, productInfoList.size)
-        }
-    }
-
-    @Test
-    fun `should show inventory list when get inventory from inventory api`() {
-        val productService = ProductService()
-        runBlocking {
-            val productInventoryList = productService.getProductInventoryList()
-            assertEquals(8, productInventoryList.size)
-        }
-    }
 
     @Test
     fun `should get product display info`() {
-        val productService = ProductService()
-        val productInventoryList = productService.generateProductDisplayList()
-        assertEquals(5, productInventoryList.size)
+        // given
+        val mockApiService = mockk<ProductApiService>()
+        val mockProductInfoList = arrayListOf(ProductInfo("1", "ABC", "product1", 5.0, "NORMAL", "image3.jpg"))
+        val mockProductInventoryList = arrayListOf(ProductInventory("1", "ABC", "china", 5))
+        coEvery { mockApiService.getProductInfoList() }.returns(mockProductInfoList)
+        coEvery { mockApiService.getProductInventoryList() }.returns(mockProductInventoryList)
+        // when
+        val productService = ProductService(mockApiService)
+        val productDisplayInfoList = productService.generateProductDisplayList()
+        // then
+        assertEquals(arrayListOf(ProductDisplayInfo("ABC", "product1", 5.0, 5, "image3.jpg")), productDisplayInfoList)
     }
 }

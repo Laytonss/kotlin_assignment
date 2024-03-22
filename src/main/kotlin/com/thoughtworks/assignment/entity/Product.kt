@@ -1,10 +1,10 @@
 package com.thoughtworks.assignment.entity
 
 data class Product(
-    val id: Int,
+    val id: String,
     val sku: String,
     val name: String,
     val price: Double,
     val type: String,
-    val image: String,
+    val image: String
 )

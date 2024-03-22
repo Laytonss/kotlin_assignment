@@ -23,4 +23,11 @@ class ProductServiceTest {
             assertEquals(8, productInventoryList.size)
         }
     }
+
+    @Test
+    fun `should get product display info`() {
+        val productService = ProductService()
+        val productInventoryList = productService.generateProductDisplayList()
+        assertEquals(5, productInventoryList.size)
+    }
 }

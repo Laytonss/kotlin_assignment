@@ -6,4 +6,8 @@ data class ProductDisplayInfo(
     val initialPrice: Double,
     val quantity: Int,
     val image: String
-)
+){
+    fun getRealPrice(): Double {
+        return 0.0
+    }
+}
